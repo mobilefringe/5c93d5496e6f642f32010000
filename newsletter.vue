@@ -13,7 +13,7 @@
                         <div class="col-md-12">
                             <breadcrumb></breadcrumb>
                             <div v-if="pageContent" v-html="pageContent.body"></div>
-                            <form class="newsletter_form form-horizontal" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="92D4C54F0FEC16E5ADC2B1904DE9ED1A4D21BA6FFF5D371643768BA415947201DB3195A0A1D354B563122D9A2BE8C0D4F4D3741295E8438D651DD617818C7D26">
+                            <form class="newsletter_form form-horizontal" action="//mobilefringe.createsend.com/t/d/s/urall/" method="post">
                                 <div class="row">
                                     <div class="col-sm-6" >
                                         <label for="fieldgvuhk" class="accessibility">First Name</label>
