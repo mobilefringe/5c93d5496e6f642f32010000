@@ -77,6 +77,7 @@
                     if(temp_repo2) {
                         this.pageImages = temp_repo2.images;
                     }
+                    console.log(this.pageImages)
 
                     if(response && response[1]){
                         this.main = response[1].data;
