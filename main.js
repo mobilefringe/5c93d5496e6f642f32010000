@@ -145,7 +145,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'vuex-router-syn
                 social_media: [
                     {
                         name: "Facebook",
-                        url: "https://www.facebook.com/anaheimhillsfestival",
+                        url: "https://www.facebook.com/creeksidetowncenter/",
                         iconClass: "fab fa-facebook"
                     },
                     // {
