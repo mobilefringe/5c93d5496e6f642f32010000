@@ -91,7 +91,7 @@
         font-size: 0.8rem;
         line-height: 1.5rem;
         margin:auto;
-        color: $primary;
+        color: #195573;
     }
 </style>
 <script>
