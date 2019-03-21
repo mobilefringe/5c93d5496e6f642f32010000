@@ -25,7 +25,7 @@
                             <div v-if="contactInfo.body" class="margin_60 padding_60" v-html="contactInfo.body"></div>    
                         </div>
                         <div class="col-md-8">
-                            <h2 class="contact-header">Contact Form</h2>
+                            <!--<h2 class="contact-header">Contact Form</h2>-->
                             <p></p>
                             <transition name="fadeIn">
                                 <div>
