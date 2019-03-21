@@ -44,7 +44,7 @@
     </div>
 </template>
 <style>
-    .location_image_container h2{
+    .row .col-md-12 h2{
         font-size: 16px;
         line-height: 1.5rem;
         margin:auto;
