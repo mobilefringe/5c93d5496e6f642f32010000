@@ -155,7 +155,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'vuex-router-syn
                     // },
                     {
                         name: "Instagram",
-                        url: "https://www.instagram.com/anaheimhillsfestival",
+                        url: "https://www.instagram.com/Creeksidetowncenterroseville/",
                         iconClass: "fab fa-instagram"
                     },
                     // {
