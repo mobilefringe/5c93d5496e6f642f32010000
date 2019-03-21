@@ -277,6 +277,20 @@ define([], function () {
             ]
         },
         {
+            path: '/jobs',
+            component: view('default'),
+            meta: {
+                breadcrumb: 'Events & Promotions',
+            },
+            children: [
+                {
+                    path: '',
+                    component: view('events_and_promotions'),
+                    name: 'events_and_promotions'
+                }
+            ]
+        },
+        {
             path: '*',
             redirect: '/'
         }
