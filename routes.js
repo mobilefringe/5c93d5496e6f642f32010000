@@ -286,7 +286,7 @@ define([], function () {
                 {
                     path: '',
                     component: view('jobs'),
-                    name: 'events_and_promotions'
+                    name: 'jobs'
                 }
             ]
         },
