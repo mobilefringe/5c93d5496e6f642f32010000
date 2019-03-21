@@ -88,7 +88,7 @@
 </template>
 <style>
     #contact_us_container h2{
-        font-size: 0.8rem;
+        font-size: 12px;
         line-height: 1.5rem;
         margin:auto;
         color: #195573;
