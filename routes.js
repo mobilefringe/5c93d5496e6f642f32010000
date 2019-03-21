@@ -280,7 +280,7 @@ define([], function () {
             path: '/jobs',
             component: view('default'),
             meta: {
-                breadcrumb: 'Events & Promotions',
+                breadcrumb: 'Jobs',
             },
             children: [
                 {
