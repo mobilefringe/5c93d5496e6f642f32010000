@@ -43,6 +43,14 @@
         </transition>
     </div>
 </template>
+<style>
+    .location_image_container h2{
+        font-size: 16px;
+        line-height: 1.5rem;
+        margin:auto;
+        color: #195573;
+    }
+</style>
 
 <script>
 	define(["Vue", "vuex", "json!site.json"], function(Vue, Vuex, Site) {
