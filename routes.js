@@ -290,7 +290,7 @@ define([], function () {
                 },
                 {
                     path: ':id',
-                    component: view('jobs_details'),
+                    component: view('job_details'),
                     meta: {
                         breadcrumb: 'Job Details',
                     },
