@@ -128,7 +128,6 @@
                     });
                     showEvents = _.orderBy(showEvents, function (o) { return o.end_date });
                     showEvents = _.groupBy(showEvents, event => (event.month));
-                    console.log(showEvents)
                     return showEvents
                 },
                 promoList: function promos() {
