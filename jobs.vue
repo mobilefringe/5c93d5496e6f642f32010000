@@ -86,7 +86,7 @@
                     'property',
                     'timezone',
                     'processedJobs',
-                    'processedPromos',
+
                     'findRepoByName'
                 ]),
                 eventList: function events() {
