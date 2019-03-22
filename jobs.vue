@@ -38,7 +38,7 @@
                         </div>
                         <div class="row margin_60" v-if="Object.keys(eventList).length === 0">
                             <div class="col-md-12">
-                                <p>Sorry, there are no Events posted at this time. Please check back soon!</p>    
+                                <p>Sorry, there are no Jobs posted at this time. Please check back soon!</p>    
                             </div>
                         </div>
                     </div>
