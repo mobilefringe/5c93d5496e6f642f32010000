@@ -5,7 +5,7 @@
 </template>
 
 <!--<template>-->
-    <div> <!-- without an outer container div this component template will not render -->
+<!--    <div> without an outer container div this component template will not render-->
 <!--        <loading-spinner v-if="!dataLoaded"></loading-spinner>-->
 <!--        <transition name="fade">-->
 <!--            <div v-if="dataLoaded" v-cloak>-->
@@ -144,7 +144,7 @@
 <!--                        this.moreEventsFetched = true;-->
 <!--                    } else {-->
 <!--                        var nextEvents = this.moreEvents.splice(0, 3);-->
-                        // Add 3 more posts to posts array
+                        <!--// Add 3 more posts to posts array-->
 <!--                        var vm = this;-->
 <!--                        _.forEach(nextEvents, function(value, key) {-->
 <!--                            vm.events.push(value);-->
