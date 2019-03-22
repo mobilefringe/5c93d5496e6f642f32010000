@@ -96,7 +96,6 @@
                 ]),
                 eventList: function events() {
                     var jobs = _.orderBy(this.processedJobs, function (o) { return o.start_date });
-                    console.log(jobs)
                     var showEvents = [];
                     var month_heading = "";
                     _.forEach(events, function (value, key) {
