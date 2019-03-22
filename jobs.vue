@@ -19,7 +19,7 @@
                             <div class="col-md-8">
                                 <h4 class="event_name">{{events.name}}</h4>
                                 <p class="event_dates">{{events.start_date | moment("MMM D", timezone)}} - {{events.end_date | moment("MMM D", timezone)}}</p>
-                                <p class="event_desc"  v-if="locale=='en-ca'">{{promo.description_short}}</p>
+                                <p class="event_desc"  v-if="locale=='en-ca'">{{events.description_short}}</p>
                                 <router-link :to="{ name: 'eventDetails', params: { id: events.slug, banner: pageBanner }}">
                                     <div class="animated_btn event_link">View Event Details <i class="fas fa-angle-double-right"></i></div>
                                 </router-link>
