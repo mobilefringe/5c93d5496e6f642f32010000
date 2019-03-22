@@ -90,40 +90,40 @@
                     'findRepoByName'
                 ]),
                 eventList: function events() {
-                    var jobs = _.orderBy(this.processedJobs, function (o) { return o.start_date });
-                    console.log(jobs)
-                    var showEvents = [];
-                    var month_heading = "";
-                    _.forEach(events, function (value, key) {
-                        var today = moment.tz(this.timezone).format();
-                        var showOnWebDate = moment.tz(value.show_on_web_date, this.timezone).format();
-                        var today_month = moment.tz(this.timezone).format("MM-YYYY");
-                        if (today >= showOnWebDate) {
-                            var start_month = moment.tz(value.start_date, this.timezone).format("MM-YYYY");
-                            if (start_month <= today_month) {
-                                value.month = moment.tz(this.timezone).format("MMMM YYYY");
-                                month_heading = today_month;
-                            } else {
-                                value.month = moment.tz(value.start_date, this.timezone).format("MMMM YYYY");
-                                month_heading = start_month;
+                    var vm = this;
+                    var temp_promo = [];
+                    var temp_job = [];
+                    _.forEach(this.processedJobs, function(value, key) {
+                        today = moment().tz(vm.timezone);
+                        webDate = moment(value.show_on_web_date).tz(vm.timezone);
+                        if (today >= webDate) {
+                            value.description_short = _.truncate(value.description, {
+                                'length': 150
+                            });
+                            value.description_short_2 = _.truncate(value.description_2, {
+                                'length': 150
+                            });
+                            // if (value.store != null && value.store != undefined && _.includes(value.store.store_front_url_abs, 'missing')) {
+                            //     value.store.store_front_url_abs = vm.property.default_logo_url;
+                            // }
+                            // else if (value.store == null || value.store == undefined) {
+                            //     value.store = {};
+                            //     value.store.store_front_url_abs =  vm.property.default_logo_url;
+                            // }
+                            if (value.store  && _.includes(value.store.store_front_url_abs, 'missing')) {
+                                // this.currentPromo.store.store_front_url_abs = this.property.default_logo_url;
+                                value.store.no_store_logo = true;
                             }
-
-                            if (value.store != null && value.store != undefined && _.includes(value.store.image_url, 'missing')) {
-                                value.store.image_url = "//codecloud.cdn.speedyrails.net/sites/5b1550796e6f641cab010000/image/png/1529532187000/eventsplaceholder2@2x.png";
+                            else if (!value.store) {
+                                value.store = {};
+                                value.store.store_front_url_abs = vm.property.default_logo_url;
                             }
-                            
-                            if (_.includes(value.image_url, 'missing')) {
-                                value.image_url = "//codecloud.cdn.speedyrails.net/sites/5b1550796e6f641cab010000/image/png/1529532187000/eventsplaceholder2@2x.png";
-                            }
-                            
-                            value.description_short = _.truncate(value.description, { 'length': 250, 'separator': ' ' });
-                            
-                            showEvents.push(value);
+                            temp_promo.push(value);
                         }
                     });
-                    showEvents = _.orderBy(showEvents, function (o) { return o.end_date });
-                    showEvents = _.groupBy(showEvents, event => (event.month));
-                    return showEvents
+                    temp_promo = _.sortBy(temp_promo, ['created_at', 'start_date']).reverse();
+                    console.log(temp_promo)
+                    return temp_promo;
                 },
             },
             methods: {
