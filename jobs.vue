@@ -5,7 +5,7 @@
             <div v-if="dataLoaded" v-cloak>
                 <div class="inside_page_header" v-if="pageBanner" v-bind:style="{ background: 'linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), #000 url(' + pageBanner.image_url + ') center center' }">
                     <div class="main_container position_relative">
-                        <h2>Events & Promotions</h2>
+                        <h2>Jobs</h2>
                     </div>
                 </div>
                 <div class="main_container">
@@ -14,7 +14,6 @@
                             <breadcrumb></breadcrumb>
                         </div>
                     </div>
-                    <div>hello</div>
                     <div v-if="toggleEvents">
                         <div v-if="eventList" v-for="(events, key) in eventList">
                             <div class="row">
@@ -88,23 +87,27 @@
 </template>
 
 <script>
-	define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "lightbox", "vue-lazy-load",  "vue-social-sharing", "json!site.json"], function(Vue, Vuex, moment, tz, VueMoment, Lightbox, VueLazyload, SocialSharing, site) {
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-lazy-load", "bootstrap-vue"], function (Vue, Vuex, moment, tz, VueMoment, VueLazyload, BootstrapVue) {
+        Vue.use(BootstrapVue);
         Vue.use(VueLazyload);
-        Vue.component('social-sharing', SocialSharing);
-		return Vue.component("events-and-promotions-component", {
-			template: template, // the variable template will be injected,
-			props: ['id'],
-			data: function() {
-				return {
-					dataLoaded: false,
-					pageBanner: null,
-					currentEvent: null,
-				    siteInfo: site,
-				}
-			},
-			created() {
-				this.$store.dispatch("getData", "events").then(response => {
-				    var temp_repo = this.findRepoByName('Jobs Banner').images;
+        return Vue.component("events-and-promotions-component", {
+            template: template, // the variable template will be injected,
+            data: function () {
+                return {
+                    dataLoaded: false,
+                    pageBanner: null,
+                    toggleEvents: true,
+                    togglePromos: false,
+                    promos: [],
+                    morePromos: [],
+                    morePromosFetched: false,
+                    noMorePromos: false,
+                    noPromos: false
+                }
+            },
+            created (){
+                this.loadData().then(response => {
+                    var temp_repo = this.findRepoByName('Jobs Banner').images;
                     if(temp_repo != null) {
                         this.pageBanner = temp_repo[0];
                     } else {
@@ -112,40 +115,138 @@
                             "image_url": "//codecloud.cdn.speedyrails.net/sites/5b5f2c136e6f644fcb5b0100/image/jpeg/1529532304000/insidebanner2.jpg"
                         }
                     }
-					this.dataLoaded = true;
-				}, error => {
-					console.error("Could not retrieve data from server. Please check internet connection and try again.");
-				});
-			},
-			computed: {
-				...Vuex.mapGetters([
-					'property',
-					'timezone',
-					'processedEvents',
-					'findEventBySlug',
-					'findRepoByName'
-				])
-			},
-			methods: {
-				isMultiDay(currentEvent) {
-					var timezone = this.timezone
-					var start_date = moment(currentEvent.start_date).tz(timezone).format("MM-DD-YYYY")
-					var end_date = moment(currentEvent.end_date).tz(timezone).format("MM-DD-YYYY")
-					if (start_date === end_date) {
-						return false
-					} else {
-						return true
-					}
-				},
-				truncate(val_body) {
-                    var truncate = _.truncate(val_body, { 'length': 99, 'separator': ' ' });
-                    return truncate;
+
+                    if (_.isEmpty(this.eventList)) {
+                        this.toggleEvents = false;
+                        this.togglePromos = true;
+                        this.handleButton();
+                    }
+                    
+                    this.dataLoaded = true;
+                });
+            },
+            computed: {
+                ...Vuex.mapGetters([
+                    'property',
+                    'timezone',
+                    'processedEvents',
+                    'processedPromos',
+                    'findRepoByName'
+                ]),
+                eventList: function events() {
+                    var events = _.orderBy(this.processedEvents, function (o) { return o.start_date });
+                    var showEvents = [];
+                    var month_heading = "";
+                    _.forEach(events, function (value, key) {
+                        var today = moment.tz(this.timezone).format();
+                        var showOnWebDate = moment.tz(value.show_on_web_date, this.timezone).format();
+                        var today_month = moment.tz(this.timezone).format("MM-YYYY");
+                        if (today >= showOnWebDate) {
+                            var start_month = moment.tz(value.start_date, this.timezone).format("MM-YYYY");
+                            if (start_month <= today_month) {
+                                value.month = moment.tz(this.timezone).format("MMMM YYYY");
+                                month_heading = today_month;
+                            } else {
+                                value.month = moment.tz(value.start_date, this.timezone).format("MMMM YYYY");
+                                month_heading = start_month;
+                            }
+
+                            if (value.store != null && value.store != undefined && _.includes(value.store.image_url, 'missing')) {
+                                value.store.image_url = "//codecloud.cdn.speedyrails.net/sites/5b1550796e6f641cab010000/image/png/1529532187000/eventsplaceholder2@2x.png";
+                            }
+                            
+                            if (_.includes(value.image_url, 'missing')) {
+                                value.image_url = "//codecloud.cdn.speedyrails.net/sites/5b1550796e6f641cab010000/image/png/1529532187000/eventsplaceholder2@2x.png";
+                            }
+                            
+                            value.description_short = _.truncate(value.description, { 'length': 250, 'separator': ' ' });
+                            
+                            showEvents.push(value);
+                        }
+                    });
+                    showEvents = _.orderBy(showEvents, function (o) { return o.end_date });
+                    showEvents = _.groupBy(showEvents, event => (event.month));
+                    return showEvents
                 },
-				shareURL(slug) {
-                    var share_url = window.location.href
-                    return share_url
+                promoList: function promos() {
+                    var vm = this;
+                    var showPromos = [];
+                    _.forEach(this.processedPromos, function(value, key) {
+                        var today = moment.tz(this.timezone).format();
+                        var showOnWebDate = moment.tz(value.show_on_web_date, this.timezone).format();
+                        if (today >= showOnWebDate) {
+                            if (value.store != null && value.store != undefined && _.includes(value.store.image_url, 'missing')) {
+                                value.store.image_url = "//codecloud.cdn.speedyrails.net/sites/5b1550796e6f641cab010000/image/png/1529532181000/promoplaceholder2@2x.png";
+                            }
+                            
+                            if (_.includes(value.image_url, 'missing')) {
+                                value.image_url = "//codecloud.cdn.speedyrails.net/sites/5b1550796e6f641cab010000/image/png/1529532181000/promoplaceholder2@2x.png";
+                            }
+                            
+                            value.description_short = _.truncate(value.description, { 'length': 250, 'separator': ' ' });
+                            
+                            showPromos.push(value);
+                        }
+                    });
+                    var sortedPromos = _.orderBy(showPromos, [function(o) { return o.end_date; }]);
+                    return sortedPromos;
+                }
+            },
+            methods: {
+                loadData: async function () {
+                    try {
+                        let results = await Promise.all([this.$store.dispatch("getData", "repos"), this.$store.dispatch("getData", "events"), this.$store.dispatch("getData","promotions")]);
+                    } catch (e) {
+                        console.log("Error loading data: " + e.message);
+                    }
                 },
-			}
-		});
-	});
+                toggleView(item) {
+                    if(this.promos.length == 0) {
+                        this.handleButton();
+                    }
+                    
+                    var selected = item;
+                    if (_.includes(item, 'events')) {
+                        if(!this.toggleEvents) { 
+                            this.toggleEvents = true
+                            this.togglePromos = false;
+                        }   
+                    } else {
+                        if(!this.togglePromos) {
+                            this.togglePromos = true;
+                            this.toggleEvents = false;
+                        }    
+                    }
+                },
+                isMultiDay(promo) {
+                    var timezone = this.timezone
+                    var start_date = moment(promo.start_date).tz(timezone).format("MM-DD-YYYY")
+                    var end_date = moment(promo.end_date).tz(timezone).format("MM-DD-YYYY")
+                    if (start_date === end_date) {
+                        return false
+                    } else {
+                        return true
+                    }
+                },
+                handleButton: function () {
+                    if(!this.morePromosFetched){
+                        this.morePromos = this.promoList;
+                        this.promos = this.morePromos.splice(0, 3);
+                        this.morePromosFetched = true;
+                    } else {
+                        var nextPromos = this.morePromos.splice(0, 3);
+                        // Add 3 more posts to posts array
+                        var vm = this;
+                        _.forEach(nextPromos, function(value, key) {
+                            vm.promos.push(value);
+                        });
+                    }
+                    if(this.promoList.length === 0){
+                        this.noMorePromos = true
+                        this.noPromos = true
+                    }
+                }
+            }
+        });
+    });
 </script>
