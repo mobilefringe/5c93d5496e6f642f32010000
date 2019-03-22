@@ -18,11 +18,11 @@
                         <div v-if="eventList.length > 0" v-for="(events, key) in eventList">
                             <div class="row event_container">
                                 <div class="col-md-8">
-                                    <h4 class="event_name">name</h4>
+                                    <h4 class="event_name">{{events.name}}</h4>
                                     <p class="event_dates">date</p>
                                     <div class="event_desc">name</div>
                                     <router-link :to="{ name: 'eventDetails', params: { id: name, banner: pageBanner }}">
-                                        <div class="animated_btn event_link">View Job Details <i class="fas fa-angle-double-right"></i></div>
+                                        <div class="animated_btn event_link">View job Details <i class="fas fa-angle-double-right"></i></div>
                                     </router-link>
                                     <hr class="event_seperator">
                                 </div>
