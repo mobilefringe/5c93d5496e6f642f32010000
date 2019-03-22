@@ -36,7 +36,7 @@
                                     <p class="event_dates"><span v-if="event.tags && event.tags.length >0">{{event.tags[0]}} | </span> <span v-if="isMultiDay(event)">{{ event.start_date | moment("MMMM D", timezone)}} to {{ event.end_date | moment("MMMM D", timezone)}}</span><span v-else>{{ event.start_date | moment("MMMM D", timezone)}}</span></p>
                                     <div class="event_desc" v-html="event.description_short"></div>
                                     <router-link :to="{ name: 'eventDetails', params: { id: event.slug, banner: pageBanner }}">
-                                        <div class="animated_btn event_link">View Jobs Details <i class="fas fa-angle-double-right"></i></div>
+                                        <div class="animated_btn event_link">View Event Details <i class="fas fa-angle-double-right"></i></div>
                                     </router-link>
                                     <hr class="event_seperator">
                                 </div>
