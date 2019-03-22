@@ -24,7 +24,7 @@
                             <div class="row event_container" v-for="event in events">
                                 <div class="col-md-8">
                                     <h4 class="event_name">{{ event.name }}</h4>
-                                    <p class="event_dates"><span v-if="event.tags && event.tags.length >0">{{event.tags[0]}} | </span> <span v-if="isMultiDay(event)">{{ event.start_date | moment("MMMM D", timezone)}} to {{ event.end_date | moment("MMMM D", timezone)}}</span><span v-else>{{ event.start_date | moment("MMMM D", timezone)}}</span></p>
+                                    <p class="event_dates"><span v-if="event.tags && event.tags.length >0">{{event.tags[0]}} | </span>event.start_date | moment("MMMM D", timezone)}} to {{ event.end_date | moment("MMMM D", timezone)}}</span><span v-else>{{ event.start_date | moment("MMMM D", timezone)}}</span></p>
                                     <div class="event_desc" v-html="event.description_short"></div>
                                     <router-link :to="{ name: 'eventDetails', params: { id: event.slug, banner: pageBanner }}">
                                         <div class="animated_btn event_link">View Event Details <i class="fas fa-angle-double-right"></i></div>
