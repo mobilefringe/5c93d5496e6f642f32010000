@@ -1,5 +1,6 @@
 <template>
     <div> <!-- Without an outer container div this component template will not render -->
+        <p>hello</p>
         <loading-spinner v-if="!dataLoaded"></loading-spinner>
         <transition name="fade">
             <div v-if="dataLoaded" v-cloak>
