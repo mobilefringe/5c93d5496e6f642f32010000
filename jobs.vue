@@ -14,7 +14,7 @@
                             <breadcrumb></breadcrumb>
                         </div>
                     </div>
-                    <div v-if="toggleEvents">
+                    <div v-if="toggleJobs">
                         <div v-if="eventList" v-for="(events, key) in eventList">
                             <div class="row">
                                 <div class="col-md-12">
