@@ -58,7 +58,7 @@
                 return {
                     dataLoaded: false,
                     pageBanner: null,
-                    toggleEvents: true,
+                    toggleJobs: true,
                     promos: [],
                     morePromos: [],
                     morePromosFetched: false,
