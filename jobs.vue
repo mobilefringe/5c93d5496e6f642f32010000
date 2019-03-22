@@ -59,7 +59,6 @@
                     dataLoaded: false,
                     pageBanner: null,
                     toggleEvents: true,
-                    togglePromos: false,
                     promos: [],
                     morePromos: [],
                     morePromosFetched: false,
