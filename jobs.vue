@@ -15,7 +15,7 @@
                         </div>
                     </div>
                     <div v-if="toggleJobs">
-                        <div v-if="eventList" v-for="(events, key) in eventList">
+                        <div v-if="jobList" v-for="(events, key) in jobList">
                             <div class="row">
                                 <div class="col-md-12">
                                     <h3 class="event_date_heading">{{ key }}</h3> 
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row margin_60" v-if="Object.keys(eventList).length === 0">
+                        <div class="row margin_60" v-if="Object.keys(jobList).length === 0">
                             <div class="col-md-12">
                                 <p>Sorry, there are no Jobs posted at this time. Please check back soon!</p>    
                             </div>
@@ -77,7 +77,7 @@
                         }
                     }
 
-                    if (_.isEmpty(this.eventList)) {
+                    if (_.isEmpty(this.jobList)) {
                         this.toggleEvents = false;
                         this.togglePromos = true;
                         this.handleButton();
@@ -94,7 +94,7 @@
                     'processedPromos',
                     'findRepoByName'
                 ]),
-                JobList: function events() {
+                jobList: function events() {
                     var jobs = _.orderBy(this.processedJobs, function (o) { return o.start_date });
                     var showEvents = [];
                     var month_heading = "";
