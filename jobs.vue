@@ -51,7 +51,7 @@
                     dataLoaded: false,
                     pageBanner: null,
                     toggleEvents: true,
-                    promos: [],
+                    promos: []
                 }
             },
             created (){
