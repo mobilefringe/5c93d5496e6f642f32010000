@@ -22,9 +22,6 @@
                                 </div>
                             </div>
                             <div class="row event_container" v-for="event in events">
-                                <div class="col-md-4">
-                                    <img :src="event.image_url" :alt="'Event: ' + event.name" class="event_img img_max" />   
-                                </div>
                                 <div class="col-md-8">
                                     <h4 class="event_name">{{ event.name }}</h4>
                                     <p class="event_dates"><span v-if="event.tags && event.tags.length >0">{{event.tags[0]}} | </span> <span v-if="isMultiDay(event)">{{ event.start_date | moment("MMMM D", timezone)}} to {{ event.end_date | moment("MMMM D", timezone)}}</span><span v-else>{{ event.start_date | moment("MMMM D", timezone)}}</span></p>
