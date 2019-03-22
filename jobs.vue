@@ -42,6 +42,44 @@
                             </div>
                         </div>
                     </div>
+                    <div v-if="togglePromos">
+                        <transition-group name="list" tag="div">
+                            <div v-if="promos.length >= 1" v-for="item in promos" :key="item.id">
+                                <div class="row event_container">
+                                    <div class="col-sm-6 col-md-4">
+                                        <img :src="item.image_url" :alt="'Promotion: ' + item.name" class="event_img img_max" />   
+                                    </div>
+                                    <div class="col-sm-6 col-md-8">
+                                        <p v-if="item.promotionable_type == 'Property'" class="event_store_name">{{ property.name }}</p>
+                                        <p v-else class="event_store_name">
+                                            <router-link :to="{ name: 'storeDetails', params: { id: item.store.slug }}">
+                                                {{ item.store.name }}
+                                            </router-link>        
+                                        </p>
+                                        <h4 class="event_name">{{ item.name }}</h4>
+                                        <p class="event_dates"><span v-if="isMultiDay(item)">{{ item.start_date | moment("MMMM D", timezone)}} - {{ item.end_date | moment("MMMM D", timezone)}}</span><span v-else>{{ item.start_date | moment("MMMM D", timezone)}}</span></p>
+                                        <div class="event_desc" v-html="item.description_short"></div>
+                                        <router-link :to="{ name: 'promotionDetails', params: { id: item.slug, banner: pageBanner }}">
+                                            <div class="animated_btn event_link">View Promotion Details <i class="fas fa-angle-double-right"></i></div>
+                                        </router-link>
+                                        <hr class="event_seperator">
+                                    </div>
+                                </div>
+                            </div>
+                        </transition-group>
+                        <div v-if="promos.length == 0">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Sorry, there are no Promotions posted at this time. Please check back soon!</p>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row margin_60">
+                            <div class="col-md-12">
+                                <button class="animated_btn event_load_more" v-if="!noMorePromos" @click="handleButton">Load More</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </transition>
@@ -58,6 +96,8 @@
                 return {
                     dataLoaded: false,
                     pageBanner: null,
+                    toggleEvents: true,
+                    togglePromos: false,
                     promos: [],
                     morePromos: [],
                     morePromosFetched: false,
