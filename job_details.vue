@@ -115,7 +115,7 @@
 				...Vuex.mapGetters([
 					'property',
 					'timezone',
-					'processedJobss',
+					'processedJobs',
 					'findEventBySlug',
 					'findRepoByName'
 				])
