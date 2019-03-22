@@ -44,6 +44,7 @@
         Vue.use(VueLazyload);
         return Vue.component("events-and-promotions-component", {
             template: template, // the variable template will be injected,
+            props:['locale']
             data: function () {
                 return {
                     dataLoaded: false,
