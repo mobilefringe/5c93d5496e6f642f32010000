@@ -139,52 +139,6 @@
                         console.log("Error loading data: " + e.message);
                     }
                 },
-                toggleView(item) {
-                    if(this.promos.length == 0) {
-                        this.handleButton();
-                    }
-                    
-                    var selected = item;
-                    if (_.includes(item, 'events')) {
-                        if(!this.toggleEvents) { 
-                            this.toggleEvents = true
-                            this.togglePromos = false;
-                        }   
-                    } else {
-                        if(!this.togglePromos) {
-                            this.togglePromos = true;
-                            this.toggleEvents = false;
-                        }    
-                    }
-                },
-                isMultiDay(promo) {
-                    var timezone = this.timezone
-                    var start_date = moment(promo.start_date).tz(timezone).format("MM-DD-YYYY")
-                    var end_date = moment(promo.end_date).tz(timezone).format("MM-DD-YYYY")
-                    if (start_date === end_date) {
-                        return false
-                    } else {
-                        return true
-                    }
-                },
-                handleButton: function () {
-                    if(!this.morePromosFetched){
-                        this.morePromos = this.promoList;
-                        this.promos = this.morePromos.splice(0, 3);
-                        this.morePromosFetched = true;
-                    } else {
-                        var nextPromos = this.morePromos.splice(0, 3);
-                        // Add 3 more posts to posts array
-                        var vm = this;
-                        _.forEach(nextPromos, function(value, key) {
-                            vm.promos.push(value);
-                        });
-                    }
-                    if(this.promoList.length === 0){
-                        this.noMorePromos = true
-                        this.noPromos = true
-                    }
-                }
             }
         });
     });
