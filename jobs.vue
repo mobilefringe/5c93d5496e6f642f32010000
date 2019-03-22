@@ -52,10 +52,6 @@
                     pageBanner: null,
                     toggleEvents: true,
                     promos: [],
-                    morePromos: [],
-                    morePromosFetched: false,
-                    noMorePromos: false,
-                    noPromos: false
                 }
             },
             created (){
