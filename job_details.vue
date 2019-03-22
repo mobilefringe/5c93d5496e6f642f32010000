@@ -91,7 +91,7 @@
                         }
                     }
                     
-					this.currentEvent = this.findEventBySlug(this.id);
+					this.currentEvent = this.findJobBySlug(this.id);
 					if (this.currentEvent === null || this.currentEvent === undefined) {
 						this.$router.replace({ name: '404' });
 						console.log(this.currentEvent)
@@ -118,7 +118,7 @@
 					'property',
 					'timezone',
 					'processedJobs',
-					'findEventBySlug',
+					'findJobBySlug',
 					'findRepoByName'
 				])
 			},
