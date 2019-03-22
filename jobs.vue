@@ -16,7 +16,7 @@
                     </div>
                     <div v-if="toggleEvents">
                         <div v-if="eventList.length > 0" v-for="(events, key) in eventList">
-                            <div class="row event_container" v-for="event in events">
+                            <div class="row event_container">
                                 <div class="col-md-8">
                                     <h4 class="event_name">name</h4>
                                     <p class="event_dates">date</p>
