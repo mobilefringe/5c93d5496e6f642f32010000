@@ -294,7 +294,7 @@ define([], function () {
                     meta: {
                         breadcrumb: 'Job Details',
                     },
-                    name: 'jobsDetails',
+                    name: 'jobDetails',
                     props: true
                 }
             ]
