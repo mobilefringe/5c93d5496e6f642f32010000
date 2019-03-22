@@ -18,7 +18,7 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <h4 class="event_name">{{ currentEvent.name }}</h4>
-                                <p class="event_type">{{events.job_type}}</p>
+                                <p class="event_type">{{currentEvent.job_type}}</p>
                                 <p class="event_details_dates">
                                     <span>{{ currentEvent.start_date | moment("MMMM D", timezone)}}</span>
                                 </p>
