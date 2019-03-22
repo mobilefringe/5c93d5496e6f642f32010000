@@ -93,6 +93,7 @@
 					this.currentEvent = this.findEventBySlug(this.id);
 					if (this.currentEvent === null || this.currentEvent === undefined) {
 						this.$router.replace({ name: '404' });
+						console.log(this.currentEvent)
 					}
 					else {
 					    if (this.currentEvent.eventable_type === "Store"){
