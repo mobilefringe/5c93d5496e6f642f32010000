@@ -94,7 +94,7 @@
                     'processedPromos',
                     'findRepoByName'
                 ]),
-                eventList: function events() {
+                JobList: function events() {
                     var jobs = _.orderBy(this.processedJobs, function (o) { return o.start_date });
                     var showEvents = [];
                     var month_heading = "";
