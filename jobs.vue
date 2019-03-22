@@ -49,41 +49,38 @@
 </template>
 
 <script>
-    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-lazy-load", "bootstrap-vue"], function (Vue, Vuex, moment, tz, VueMoment, VueLazyload, BootstrapVue) {
-        Vue.use(BootstrapVue);
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-meta", "vue-lazy-load", "vue-paginate"], function(Vue, Vuex, moment, tz, VueMoment, Meta, VueLazyload, VuePaginate) {
+        Vue.use(Meta);
         Vue.use(VueLazyload);
-        return Vue.component("events-and-promotions-component", {
-            template: template, // the variable template will be injected,
-            data: function () {
+        Vue.use(VuePaginate);
+        return Vue.component("promos-component", {
+            template: template, // the variable template will be injected
+            props:['locale'],
+            data: function() {
                 return {
-                    dataLoaded: false,
+                    selectedDate: null,
+                    filteredPromos:[],
+                    dataloaded: false,
                     pageBanner: null,
-                    toggleJobs: true,
-                    promos: [],
-                    morePromos: [],
-                    morePromosFetched: false,
-                    noMorePromos: false,
-                    noPromos: false
+                    // paginate: ['promos'],
+                    promos : null,
+                    incrementBy: 5,
+                    showMore: 5,
                 }
             },
-            created (){
+            created() {
                 this.loadData().then(response => {
-                    var temp_repo = this.findRepoByName('Jobs Banner').images;
-                    if(temp_repo != null) {
-                        this.pageBanner = temp_repo[0];
-                    } else {
-                        this.pageBanner = {
-                            "image_url": "//codecloud.cdn.speedyrails.net/sites/5b5f2c136e6f644fcb5b0100/image/jpeg/1529532304000/insidebanner2.jpg"
-                        }
-                    }
-
-                    if (_.isEmpty(this.eventList)) {
-                        this.toggleEvents = false;
-                        this.togglePromos = true;
-                        this.handleButton();
-                    }
+                    this.dataloaded = true;
                     
-                    this.dataLoaded = true;
+                    var temp_repo = this.findRepoByName('Jobs Banner');
+                    if(temp_repo && temp_repo.images) {
+                        this.pageBanner = temp_repo.images[0];
+                    }
+                    else {
+                        this.pageBanner = {};
+                        this.pageBanner.image_url = "";
+                    }
+                    this.promos = this.promotions;
                 });
             },
             computed: {
@@ -91,10 +88,9 @@
                     'property',
                     'timezone',
                     'processedJobs',
-                    'processedPromos',
-                    'findRepoByName'
+                    'findRepoByName',
                 ]),
-               promotions() {
+                promotions() {
                     var vm = this;
                     var temp_promo = [];
                     var temp_job = [];
@@ -127,86 +123,23 @@
                         }
                     });
                     temp_promo = _.sortBy(temp_promo, ['created_at', 'start_date']).reverse();
-                    console.log(temp_promo)
                     return temp_promo;
                 },
-                promoList: function promos() {
-                    var vm = this;
-                    var showPromos = [];
-                    _.forEach(this.processedPromos, function(value, key) {
-                        var today = moment.tz(this.timezone).format();
-                        var showOnWebDate = moment.tz(value.show_on_web_date, this.timezone).format();
-                        if (today >= showOnWebDate) {
-                            if (value.store != null && value.store != undefined && _.includes(value.store.image_url, 'missing')) {
-                                value.store.image_url = "//codecloud.cdn.speedyrails.net/sites/5b1550796e6f641cab010000/image/png/1529532181000/promoplaceholder2@2x.png";
-                            }
-                            
-                            if (_.includes(value.image_url, 'missing')) {
-                                value.image_url = "//codecloud.cdn.speedyrails.net/sites/5b1550796e6f641cab010000/image/png/1529532181000/promoplaceholder2@2x.png";
-                            }
-                            
-                            value.description_short = _.truncate(value.description, { 'length': 250, 'separator': ' ' });
-                            
-                            showPromos.push(value);
-                        }
-                    });
-                    var sortedPromos = _.orderBy(showPromos, [function(o) { return o.end_date; }]);
-                    return sortedPromos;
-                }
             },
             methods: {
-                loadData: async function () {
+                loadData: async function() {
                     try {
-                        let results = await Promise.all([this.$store.dispatch("getData", "repos"), this.$store.dispatch("getData", "jobs"), this.$store.dispatch("getData","promotions")]);
+                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
+                        let results = await Promise.all([this.$store.dispatch("getData", "jobs"), this.$store.dispatch("getData", "repos")]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
                 },
-                toggleView(item) {
-                    if(this.promos.length == 0) {
-                        this.handleButton();
-                    }
-                    
-                    var selected = item;
-                    if (_.includes(item, 'events')) {
-                        if(!this.toggleEvents) { 
-                            this.toggleEvents = true
-                            this.togglePromos = false;
-                        }   
-                    } else {
-                        if(!this.togglePromos) {
-                            this.togglePromos = true;
-                            this.toggleEvents = false;
-                        }    
-                    }
-                },
-                isMultiDay(promo) {
-                    var timezone = this.timezone
-                    var start_date = moment(promo.start_date).tz(timezone).format("MM-DD-YYYY")
-                    var end_date = moment(promo.end_date).tz(timezone).format("MM-DD-YYYY")
-                    if (start_date === end_date) {
-                        return false
-                    } else {
-                        return true
-                    }
-                },
-                handleButton: function () {
-                    if(!this.morePromosFetched){
-                        this.morePromos = this.promoList;
-                        this.promos = this.morePromos.splice(0, 3);
-                        this.morePromosFetched = true;
-                    } else {
-                        var nextPromos = this.morePromos.splice(0, 3);
-                        // Add 3 more posts to posts array
-                        var vm = this;
-                        _.forEach(nextPromos, function(value, key) {
-                            vm.promos.push(value);
-                        });
-                    }
-                    if(this.promoList.length === 0){
-                        this.noMorePromos = true
-                        this.noPromos = true
-                    }
+                loadMoreItems() {
+                  if (this.showMore <= this.promos.length) {
+                    var num = this.showMore + this.incrementBy;
+                    this.showMore = num;
+                  }
                 }
             }
         });
