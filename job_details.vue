@@ -19,9 +19,7 @@
                             <div class="col-md-8">
                                 <h4 class="event_name">{{ currentEvent.name }}</h4>
                                 <p class="event_type">{{currentEvent.job_type}}</p>
-                                <p class="event_details_dates">
-                                    <span>{{ currentEvent.start_date | moment("MMMM D", timezone)}}</span>
-                                </p>
+                                <p class="event_dates">{{events.start_date | moment("MMM D", timezone)}} - {{events.end_date | moment("MMM D", timezone)}}</p>
                                 <div class="event_desc event_details" v-html="currentEvent.rich_description"></div>
                             </div>
                         </div>
