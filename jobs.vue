@@ -72,7 +72,7 @@
                     if (_.isEmpty(this.eventList)) {
                         this.toggleEvents = false;
                     }
-                    
+                    this.promos = this.eventList
                     this.dataLoaded = true;
                 });
             },
