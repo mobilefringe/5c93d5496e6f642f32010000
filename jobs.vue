@@ -19,7 +19,7 @@
                             <div class="row event_container" v-for="event in events">
                                 <div class="col-md-8">
                                     <h4 class="event_name">{{events.name}}</h4>
-                                    <p class="event_dates">date</p>
+                                    <p class="event_dates">{{events.start_date | moment("MMM D", timezone)}} - {{events.end_date | moment("MMM D", timezone)}}</p>
                                     <div class="event_desc">name</div>
                                     <router-link :to="{ name: 'eventDetails', params: { id: event.slug, banner: pageBanner }}">
                                         <div class="animated_btn event_link">View Event Details <i class="fas fa-angle-double-right"></i></div>
