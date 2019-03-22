@@ -80,8 +80,8 @@
 				}
 			},
 			created() {
-				this.$store.dispatch("getData", "events").then(response => {
-				    var temp_repo = this.findRepoByName('Events Banner').images;
+				this.$store.dispatch("getData", "jobs").then(response => {
+				    var temp_repo = this.findRepoByName('Jobs Banner').images;
                     if(temp_repo != null) {
                         this.pageBanner = temp_repo[0];
                     } else {
@@ -142,4 +142,4 @@
 			}
 		});
 	});
-</script>
+</script>s
