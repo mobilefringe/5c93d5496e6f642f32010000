@@ -95,7 +95,8 @@
                     "processedCategories",
                     "storesByCategoryName",
                     'findCategoryByName',
-                    'findRepoByName'
+                    'findRepoByName',
+                    'findSubcategoriesByParentID'
                 ]),
                 allStores() {
                     this.processedStores.map(function(store){
@@ -110,8 +111,8 @@
                     var cats = _.map(this.processedCategories, 'name');
                     console.log(this.processedCategories)
                     var subcategories = [];
-                    if (this.processedCategories.store_ids.length > 0) {
-                        subcategories = this.findSubcategoriesbyParnetID(cats)
+                    if (this.processedCategories {
+                        subcategories = this.findSubcategoriesByParentID(cats)
                     }
                     subcategories = _.map(subcategories, 'name').sort();
                     cats.unshift('All');
