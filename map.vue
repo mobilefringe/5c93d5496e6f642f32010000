@@ -127,6 +127,7 @@
                         });
                         this.filteredStores = filtered;
                     }
+                    console.log(this.filteredStores)
                     var el = document.getElementById("selectByCat");
                     if(el) {
                         el.classList.remove("open");
