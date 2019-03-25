@@ -110,6 +110,10 @@
                     var cats = _.map(this.processedCategories, 'name');
                     console.log(this.processedCategories)
                     var subcategories = [];
+                    if (this.processedCategories.store_ids.length > 0) {
+                        subcategories = this.findSubcategoriesbyParnetID(cats)
+                    }
+                    subcategories = _.map(subcategories, 'name').sort();
                     cats.unshift('All');
                     return cats;
                 },
