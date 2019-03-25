@@ -108,7 +108,8 @@
                 },
                 dropDownCats() {
                     var cats = _.map(this.processedCategories, 'name');
-                    console.log(cats)
+                    console.log(this.processedCategories)
+                    var subcategories = [];
                     cats.unshift('All');
                     return cats;
                 },
