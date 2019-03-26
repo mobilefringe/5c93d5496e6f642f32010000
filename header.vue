@@ -25,7 +25,7 @@
     						        <router-link v-if="item.sub_menu == undefined" :to="item.href">{{ item.name }}</router-link>
     						        <span v-if="item.sub_menu != undefined">{{ item.name }}</span>
     						        <ul v-if="item.sub_menu">
-    						            <li v-show="showDropDown" v-for="sub_menu in item.sub_menu" class="dropdown_item">
+    						            <li v-for="sub_menu in item.sub_menu" class="dropdown_item">
     						                <router-link :to="sub_menu.href">{{ sub_menu.name }}</router-link>
     						            </li>
     								</ul>
@@ -83,7 +83,6 @@
                     windowWidth: 0,
                     scrollY: false,
                     siteInfo: site,
-                    showDropdown: false
                 }
             },
             props:['menu_items', 'social_media'],
