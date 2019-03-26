@@ -26,7 +26,7 @@
     						        <span @click="showDropDown = !showDropDown" v-if="item.sub_menu != undefined">{{ item.name }}</span>
     						        <ul v-show="showDropDown" v-if="item.sub_menu">
     						            <li v-for="sub_menu in item.sub_menu" class="dropdown_item">
-    						                <router-link @click="showDropDown = !showDropDown :to="sub_menu.href">{{ sub_menu.name }}</router-link>
+    						                <router-link @click="showDropDown = !showDropDown" :to="sub_menu.href">{{ sub_menu.name }}</router-link>
     						            </li>
     								</ul>
     						    </li>
