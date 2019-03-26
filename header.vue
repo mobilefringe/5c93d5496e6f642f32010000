@@ -78,7 +78,7 @@
             data: function () {
                 return {
                     showMenu: false,
-                    showDropDown: false,
+                    showDropDown: true,
                     showMobileMenu: false,
                     noScroll: false,
                     windowWidth: 0,
