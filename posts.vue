@@ -228,7 +228,7 @@
                                 }
                                 
                                 if (_.includes(value.image_url, 'missing')) {
-                                    value.image_url = "//codecloud.cdn.speedyrails.net/sites/5b1550796e6f641cab010000/image/png/1529532187000/eventsplaceholder2@2x.png";
+                                    value.image_url = "//codecloud.cdn.speedyrails.net/sites/5c93d5496e6f642f32010000/image/png/1553624484143/creekside_placeholder.pngg";
                                 }
                                 
                                 value.description_short = _.truncate(value.body, { 'length': 250, 'separator': ' ' });
