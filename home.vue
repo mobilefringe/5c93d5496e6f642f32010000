@@ -185,24 +185,37 @@
                 ]),
                 homeBanners() {
                     var banners = [];
-                    _.forEach(this.$store.state.banners, function (value, key) {
-                        var today = new Date();
-                        var start = new Date (value.start_date);
-                        if (start <= today){
-                            if (value.end_date){
-                                var end = new Date (value.end_date);
-                                if (end >= today){
-                                    banners.push(value);  
-                                }
-                            } else {
-                                banners.push(value);
-                            }
+                    // _.forEach(this.$store.state.banners, function (value, key) {
+                    //     var today = new Date();
+                    //     var start = new Date (value.start_date);
+                    //     if (start <= today){
+                    //         if (value.end_date){
+                    //             var end = new Date (value.end_date);
+                    //             if (end >= today){
+                    //                 banners.push(value);  
+                    //             }
+                    //         } else {
+                    //             banners.push(value);
+                    //         }
                             
-                            if (value.cms_fields.subheader) {
-                                value.heading = value.cms_fields.subheader;
-                            }
-                        }
+                    //         if (value.cms_fields.subheader) {
+                    //             value.heading = value.cms_fields.subheader;
+                    //         }
+                    //     }
+                    // });
+                    var temp_image_url = ["//codecloud.cdn.speedyrails.net/sites/5c82cb8f6e6f643f0f010000/image/jpeg/1553012781691/treat_1920x450_1.jpg", "//codecloud.cdn.speedyrails.net/sites/5c82cb8f6e6f643f0f010000/image/jpeg/1553012778499/hungry_1920x450_1.jpg"]
+                    var temp_name = ["Treat Yourself.","HUNGRY? "]
+                    var temp_desc = ["You deserve it.", "We know just the place..."]
+                    var temp_url = ["/stores", "/dine"]
+                    _.forEach(temp_image_url, function (value, key) {
+                        var temp = {};
+                        temp.image_url = temp_image_url[key];
+                        temp.name = temp_name[key];
+                        temp.description = temp_desc[key];
+                        temp.url = temp_url[key];
+                        banners.push(temp);
                     });
+                    
                     banners = _.orderBy(banners, function(o) { return o.position });
                     return banners
                 },
