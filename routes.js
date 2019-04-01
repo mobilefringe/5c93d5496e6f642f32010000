@@ -276,29 +276,29 @@ define([], function () {
                 }
             ]
         },
-        {
-            path: '/jobs',
-            component: view('default'),
-            meta: {
-                breadcrumb: 'Jobs',
-            },
-            children: [
-                {
-                    path: '',
-                    component: view('jobs'),
-                    name: 'jobs'
-                },
-                {
-                    path: ':id',
-                    component: view('job_details'),
-                    meta: {
-                        breadcrumb: 'Job Details',
-                    },
-                    name: 'jobsDetails',
-                    props: true
-                }
-            ]
-        },
+        // {
+        //     path: '/jobs',
+        //     component: view('default'),
+        //     meta: {
+        //         breadcrumb: 'Jobs',
+        //     },
+        //     children: [
+        //         {
+        //             path: '',
+        //             component: view('jobs'),
+        //             name: 'jobs'
+        //         },
+        //         {
+        //             path: ':id',
+        //             component: view('job_details'),
+        //             meta: {
+        //                 breadcrumb: 'Job Details',
+        //             },
+        //             name: 'jobsDetails',
+        //             props: true
+        //         }
+        //     ]
+        // },
         {
             path: '*',
             redirect: '/'
