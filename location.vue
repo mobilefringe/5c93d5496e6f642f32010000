@@ -30,7 +30,7 @@
                         <div class="col-md-6" v-if="address">
                             <div v-html="address.body"></div>
                         </div>
-                        <div class="col-md-6" v-if="directions">
+                        <div class="col-md-6" v-if="office">
                             <div v-html="office.body"></div>
                         </div>
                     </div>
