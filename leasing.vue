@@ -21,7 +21,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div style="width: 50%"class="leasing_contact" v-if="leasingInfo" v-html="leasingInfo.body"></div>
+                            <div style="width: 50%" class="leasing_contact" v-if="leasingInfo" v-html="leasingInfo.body"></div>
                         </div>
                     </div>
                 </div>
