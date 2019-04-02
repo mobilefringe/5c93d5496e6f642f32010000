@@ -300,16 +300,16 @@ define([], function () {
         //     ]
         // },
         {
-           path: '/dine',
+           path: '/thank-you',
                 component: view('default'),
                 children: [
                 {   
                     path: '',
-                    component: view('dine'),
+                    component: view('thank_you'),
                     meta: {
-                        breadcrumb: 'Dining',
+                        breadcrumb: 'Thank You',
                     },
-                    name: 'dine'
+                    name: 'Thank You'
                 }
             ]
         },
