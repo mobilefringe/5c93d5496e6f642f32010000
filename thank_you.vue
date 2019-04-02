@@ -42,6 +42,9 @@
                 return {
                     dataLoaded: false,
                     main: null,
+                    leasingInfo: null,
+                    leasingBooklet: null,
+                    pageImages: null
                 }
             },
             created() {
@@ -54,6 +57,7 @@
                             "image_url": "//codecloud.cdn.speedyrails.net/sites/5c93d5496e6f642f32010000/image/png/1553624485505/creekside_banner.png"
                         }
                     }
+                    this.dataLoaded = true;
                 });
             },
             computed: {
@@ -63,6 +67,17 @@
                     'findRepoByName'
                 ])
             },
+            methods: {
+                loadData: async function () {
+                    this.property.mm_host = this.property.mm_host.replace("http:", "");
+                    try {
+                        let results = await Promise.all([this.$store.dispatch("getData", "repos"), this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "/pages/"+Site.subdomain+"-thank-you.json"})]);
+                        return results;
+                    } catch (e) {
+                        console.log("Error loading data: " + e.message);
+                    }
+                }
+            }
         });
 	});
 </script>
