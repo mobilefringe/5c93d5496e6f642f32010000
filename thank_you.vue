@@ -42,9 +42,6 @@
                 return {
                     dataLoaded: false,
                     main: null,
-                    leasingInfo: null,
-                    leasingBooklet: null,
-                    pageImages: null
                 }
             },
             created() {
