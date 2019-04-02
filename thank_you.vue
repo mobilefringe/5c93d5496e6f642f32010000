@@ -1,28 +1,25 @@
 <template>
     <div> <!-- for some reason if you do not put an outer container div this component template will not render -->
         <loading-spinner v-if="!dataLoaded"></loading-spinner>
-        <transition name="fade">
-            <div v-if="dataLoaded" v-cloak>
-                <div class="inside_page_header" v-if="pageBanner" v-bind:style="{ background: 'linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), #000 url(' + pageBanner.image_url + ') center center' }">
-                    <div class="main_container position_relative">
-                        <h2>Leasing</h2>
+        <div v-if="dataLoaded" v-cloak>
+            <div class="inside_page_header" v-if="pageBanner" v-bind:style="{ background: 'linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), #000 url(' + pageBanner.image_url + ') center center' }">
+                <div class="main_container position_relative">
+                    <h2>Leasing</h2>
+                </div>
+            </div>
+            <div class="main_container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <breadcrumb></breadcrumb>
                     </div>
                 </div>
-                <div class="main_container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <breadcrumb></breadcrumb>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div v-if="thankYou" v-html="thankYou.body"></div>
-                        </div>
-                    </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div v-if="thankYou" v-html="thankYou.body"></div>
                     </div>
                 </div>
             </div>
-        </transition>
+        </div>
     </div>
 </template>
 <style>
