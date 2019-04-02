@@ -300,6 +300,20 @@ define([], function () {
         //     ]
         // },
         {
+           path: '/dine',
+                component: view('default'),
+                children: [
+                {   
+                    path: '',
+                    component: view('dine'),
+                    meta: {
+                        breadcrumb: 'Dining',
+                    },
+                    name: 'dine'
+                }
+            ]
+        },
+        {
             path: '*',
             redirect: '/'
         }
