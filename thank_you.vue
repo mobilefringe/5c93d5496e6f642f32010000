@@ -15,7 +15,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 margin_30">
-                        <div v-if="thankYou" v-html="thankYou.body"></div>
+                        <div class="thank_you"v-if="thankYou" v-html="thankYou.body"></div>
                     </div>
                 </div>
             </div>
