@@ -16,9 +16,9 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <h2>Thank you!</h2>
-                            <p>Your subscription has been confirmed. You've been added to our list and will hear from us soon.</p>
+                            <div class="leasing_main" v-if="main" v-html="main.body"></div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
