@@ -41,7 +41,7 @@
             data: function () {
                 return {
                     dataLoaded: false,
-                    main: null,
+                    thankYou: null,
                     leasingInfo: null,
                     leasingBooklet: null,
                     pageImages: null
