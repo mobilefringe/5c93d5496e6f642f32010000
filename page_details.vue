@@ -71,6 +71,7 @@
                         if (_this.currentPage.title == "Thank You") {
                             _this.currentPage.title == "Newsletter"
                         }
+                        console.log(this.currentPage)
                         _this.$breadcrumbs[0].meta.breadcrumb = _this.currentPage.title
                         _this.dataLoaded = true;
                     }, function (error) {
