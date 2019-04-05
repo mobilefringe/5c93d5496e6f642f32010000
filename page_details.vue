@@ -67,6 +67,7 @@
                     var _this = this;
                     this.$store.dispatch('LOAD_PAGE_DATA', { url: this.property.mm_host + "/pages/" + this.id + ".json" }).then(function (response) {
                         _this.currentPage = response.data;
+                        console.log(_this.currentPage)
                         if (_this.currentPage.title === "Thank You") {
                             _this.currentPage.title === "Newsletter"
                         }
