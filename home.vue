@@ -203,6 +203,7 @@
                             }
                         }
                     });
+                    console.log("this.$store.state.banners", this.$store.state.banners)
                     // var temp_image_url = ["//codecloud.cdn.speedyrails.net/sites/5c93d5496e6f642f32010000/image/jpeg/1557960136000/CTC_HungryTreat319_images1.jpg", "//codecloud.cdn.speedyrails.net/sites/5c82cb8f6e6f643f0f010000/image/jpeg/1553012778499/hungry_1920x450_1.jpg"]
                     // var temp_name = ["Treat Yourself.","HUNGRY? "]
                     // var temp_desc = ["You deserve it.", "We know just the place..."]
