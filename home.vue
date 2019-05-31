@@ -9,7 +9,6 @@
                         <div v-if="homeBanners" v-for="banner in homeBanners">
                             <div v-if="banner.name && banner.description" class="banner_height">
                                 <div class="banner_image" v-bind:style="{ backgroundImage: 'url(' + banner.image_url + ')' }"></div>
-                                {{ banner.image_url}}
                                 <div class="banner_content_container">
                                     <div class="banner_content">
                                         <span v-if="banner.heading" class="banner_heading">{{ banner.heading }}</span>
