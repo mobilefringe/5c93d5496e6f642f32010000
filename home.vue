@@ -205,8 +205,6 @@
                     });
                     
                     banners = _.orderBy(banners, function(o) { return o.position });
-                    
-                    console.log("banners", banners)
                     return banners
                 },
                 featuredItems() {
