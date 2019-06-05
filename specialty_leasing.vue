@@ -53,7 +53,7 @@
             },
             created() {
                 this.loadData().then(response => {
-                    var temp_repo = this.findRepoByName('Leasing Banner');
+                    var temp_repo = this.findRepoByName('Specialty Leasing Banner');
                     if(temp_repo != null && temp_repo !==undefined) {
                         this.pageBanner = temp_repo.images[0];
                     } else {
@@ -67,7 +67,7 @@
                         this.leasingBooklet = temp_repo1.images[0].image_url;
                     }
 
-                    var temp_repo2 = this.findRepoByName('Leasing Images');
+                    var temp_repo2 = this.findRepoByName('Specialty Leasing Images');
                     if(temp_repo2) {
                         this.pageImages = temp_repo2.images;
                     }
