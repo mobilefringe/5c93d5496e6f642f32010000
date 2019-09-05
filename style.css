@@ -1378,6 +1378,7 @@ $anim-speed: 0.3s;
     overflow-y: scroll;
     .store_name {
         margin: 3px 0;
+        padding: 3px 0 3px 5px ;
         transition: all 0.3s ease;
         &:hover {
             font-weight: 500;
