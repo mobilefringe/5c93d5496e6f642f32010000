@@ -981,11 +981,11 @@ $anim-speed: 0.3s;
 .alert-danger {
     border-color: #a94442;
 }
-.contact-header {
-    font-size: 24px !important;
-    color: #91a65b !important;
-    padding-bottom: 20px;
-}
+// .contact-header {
+//     font-size: 24px !important;
+//     color: #91a65b !important;
+//     padding-bottom: 20px;
+// }
 #contact_form, #contest_form {
     .form-group {
         margin-bottom: 16px;
@@ -1001,6 +1001,8 @@ $anim-speed: 0.3s;
         border-radius: 0;
         background: #ebebeb;
         box-shadow: none;
+        font-size: 1rem;
+        line-height: inherit;
         color: #555759;
     }
     textarea.form-control {
