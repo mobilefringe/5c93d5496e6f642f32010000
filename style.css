@@ -1269,7 +1269,6 @@ $anim-speed: 0.3s;
         height: 33px;
         border: none;
         background: transparent;
-        font-size: 0.8125rem;
         line-height: normal;
         color: #555;
     }
@@ -1297,7 +1296,6 @@ $anim-speed: 0.3s;
             color: #555;
             p {
                 margin: 0;
-                font-size: 0.8125rem;
                 line-height: normal;
                 transition: all 0.3s ease;
             }
@@ -1321,7 +1319,6 @@ $anim-speed: 0.3s;
                 height: 30px;
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 300;
-                font-size: 0.8125rem !important;
                 line-height: normal !important;
                 color: #555; 
             }
@@ -1343,7 +1340,7 @@ $anim-speed: 0.3s;
             background: #ebebeb;
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
-            font-size: 0.8125rem !important;
+            font-size: 1rem !important;
             line-height: normal !important;
             color: #555; 
         }
@@ -1364,7 +1361,6 @@ $anim-speed: 0.3s;
             border-radius: 0;
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
-            font-size: 0.8125rem;
             line-height: normal;
             color: #555; 
         }  
@@ -1454,7 +1450,7 @@ $anim-speed: 0.3s;
     margin: 46px 164px;
     label {
         font-weight: 300;
-        font-size: 0.8125rem;
+        font-size: 0.875rem;
         line-height: 1rem;
     }
     .form-control {
