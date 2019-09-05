@@ -336,12 +336,9 @@ input[type="search"] {
                 line-height: normal;
                 color: #FFF;
                 a:hover {
-                    // color: #d8be9f;
                     color: #000;
                 }
             	&:hover, &:active, &:focus, &:visited {
-            	   // background: $primary;
-            	   // color: #d8be9f;
             	    color: #000;
             	    background:#d8be9f;
             	}
