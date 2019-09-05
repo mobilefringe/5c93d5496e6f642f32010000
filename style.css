@@ -335,8 +335,10 @@ input[type="search"] {
                 font-size: 0.875rem;
                 line-height: normal;
                 color: #FFF;
+
                 a:hover {
                     color: #d8be9f;
+                    
                 }
             	&:hover, &:active, &:focus, &:visited {
             	    background: $primary;
