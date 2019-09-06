@@ -338,6 +338,9 @@ input[type="search"] {
                 a:hover {
                     color: #000;
                 }
+                p {
+            	    margin: 0;
+            	}
             	&:hover, &:active, &:focus, &:visited {
             	    color: #000;
             	    background:#d8be9f;
