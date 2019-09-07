@@ -369,9 +369,6 @@ input[type="search"] {
         span {
             font-family: 'Roboto Condensed', sans-serif;
         }
-        #newsletter_margin {
-            margin: 30px 0;
-        }
         #userName, #emailAddress {
             margin-left: 10px;
             padding: 0 10px;
