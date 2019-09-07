@@ -417,7 +417,7 @@ input[type="search"] {
             font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
             line-height: 1rem;
-            color: #555;
+            color: #fff;
             text-transform: uppercase;
             transition: all 0.3s ease;
             &:before {
