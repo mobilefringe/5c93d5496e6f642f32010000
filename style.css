@@ -279,7 +279,6 @@ input[type="search"] {
         }
     }
     .site_logo {
-        // padding-bottom: 17px;
         padding: 28px 0;
         max-width: 300px;
         transition: all 0.3s ease;
@@ -288,7 +287,8 @@ input[type="search"] {
         }
     }
     .mini_logo {
-        max-width: 160px;
+        padding: 18px 0;
+        max-width: 200px;
     }
 }
 .sticky {
@@ -360,6 +360,7 @@ input[type="search"] {
     background-color: #555;
     color: #FFF;
     .newsletter_signup {
+        padding: 28px 0 32px 0;
         background-color: $primary;
         font-size: 1rem;
         line-height: 1rem;
