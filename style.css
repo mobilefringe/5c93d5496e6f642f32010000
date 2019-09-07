@@ -412,13 +412,17 @@ input[type="search"] {
             height: 34px;
             display: inline-block;
             border: 1px solid #000;
-            background-color: transparent;
+            // background-color: transparent;
+            background: $secondary;
             font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
             line-height: 1rem;
-            color: #fff;
+            color: #555;
             text-transform: uppercase;
             transition: all 0.3s ease;
+            &:before {
+                background: #555;
+            }
             &:hover {
                 color: #FFF;
             }
