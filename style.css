@@ -280,7 +280,7 @@ input[type="search"] {
     }
     .site_logo {
         padding: 28px 0;
-        max-width: 300px;
+        max-width: 250px;
         transition: all 0.3s ease;
         img {
             max-width: 100%;
