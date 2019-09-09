@@ -86,6 +86,9 @@ input[type="search"] {
     width: 85%;
     padding-left: 5px;
 }
+strong {
+    color: $primary;
+}
 [v-cloak] {
     display: none;
 }
