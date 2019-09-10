@@ -446,7 +446,7 @@ strong {
                 font-size: 2rem;
             }
             a:hover {
-                color: $secondary;
+                color: rgb(234,228,219);
             }
         }
         .footer_links a {
