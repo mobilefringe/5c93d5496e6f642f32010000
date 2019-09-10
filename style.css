@@ -465,6 +465,9 @@ strong {
         p {
             margin: 0;
         }
+        a:hover {
+            color: #d8be9f;
+        }
     }
 }
 
