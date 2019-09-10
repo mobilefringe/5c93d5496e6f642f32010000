@@ -72,7 +72,7 @@
                         this.leasingBooklet = temp_repo1.images[0].image_url;
                     }
 
-                    var temp_repo2 = this.findRepoByName('Specialty Leasing Images');
+                    var temp_repo2 = this.findRepoByName('Leasing Images');
                     if(temp_repo2) {
                         this.pageImages = temp_repo2.images;
                     }
