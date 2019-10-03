@@ -2000,7 +2000,7 @@ $anim-speed: 0.3s;
         width: 100vw;
         height: calc(100vh - 135px);
         position: absolute;
-        top: 0;
+        top: 1px;
         left: 0;
         right: 0;
         overflow-y: scroll;
