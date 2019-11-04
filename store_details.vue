@@ -50,6 +50,8 @@
                             <div id="map" class="margin_20">
                                 <mapplic-png-map ref="pngmap_ref" :height="314" :hovertip="true" :storelist="allStores" :floorlist="floorList" :svgWidth="property.map_image_width" :svgHeight="property.map_image_height" @updateMap="updatePNGMap" class="store_details_map"></mapplic-png-map>
                             </div>
+                            
+                            <div class=" margin_30 store_details_desc" v-html="currentStore.rich_description"></div>
                             <div v-if="deliveryAvailable" class="margin_30">
                                 <h3 class="store_details_title">Delivery Options:</h3>
                                 <div class="store_details_delivery">
@@ -61,7 +63,6 @@
                                     
                                 </div>
                             </div>
-                            <div class=" margin_30 store_details_desc" v-html="currentStore.rich_description"></div>
                             <div v-if="currentStore.events">
                                 <h3 class="store_details_title">Current Events</h3>
                                 <div class="row margin_40">
