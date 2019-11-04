@@ -193,7 +193,6 @@
                     
                     subcategories = _.map(subcategories, 'name').sort();
                     subcategories.unshift('All Cuisine');
-                    console.log(dining_cat, subcategories)
                     return subcategories;
                 },
                 filterByCategory() {
