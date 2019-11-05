@@ -17,7 +17,6 @@
 
 /* *** COLOURS *** */
 $primary: #195573; 
-// $primary: #697a3c;
 $secondary: #886334;
 $text: #000;
 
@@ -1878,9 +1877,6 @@ input[type=search] {
             transform: translate(-50%, -50%);
             text-align: center;
         }
-    }
-    .delivery_option:last-of-type {
-        margin: 0;
     }
 }
 
