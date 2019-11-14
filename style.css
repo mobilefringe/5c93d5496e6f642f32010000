@@ -342,7 +342,7 @@ strong {
                 line-height: normal;
                 color: #FFF;
                 &:hover, &:active, &:focus, &:visited {
-            	    color: red;
+            	    color: #000;
             	    background:#d8be9f;
             	}
                 a:hover {
