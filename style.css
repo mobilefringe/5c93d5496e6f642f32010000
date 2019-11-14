@@ -2213,23 +2213,39 @@ input[type=search] {
         margin-bottom: 30px;
         text-align: center;
     }
+//     .tile {
+// 	    img {
+// 	        filter: blur(1px);
+// 	    }
+// 		&:before {
+// // 			top: 50%;
+// // 			opacity: 1;
+// 		}
+// 		&:hover, &:focus
+// 		.details {
+// 		    opacity: 0;
+//     		span {
+//     			top: 0;
+//     			opacity: 1;
+//     		}
+//         }
+//     }
     .tile {
-	    img {
-	        filter: blur(1px);
-	    }
-		&:before {
-// 			top: 50%;
-// 			opacity: 1;
-		}
-		&:hover, &:focus {
-		    opacity: 1;
-		}
-		.details {
-		    opacity: 0;
-    // 		span {
-    // 			top: 0;
-    // 			opacity: 1;
-    // 		}
+        &:focus,
+        &:hover {
+            img {
+    	        filter: blur(1px);
+    	    }
+    	    &:before {
+    	        top: 0;
+    	        
+    	    }
+    	    &:before, span {
+    	        opacity: 1;
+    	    }
+        }
+        .details {
+            padding: 2px;
         }
     }
     .insta-feed-container .insta-feed-image .insta-img {
