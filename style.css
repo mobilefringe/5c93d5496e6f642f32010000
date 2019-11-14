@@ -350,6 +350,9 @@ strong {
                 }
                 p {
             	    margin: 0;
+            	    &:hover, &:focus {
+                	    color: #fff !important;
+                	}
             	}
             }
         }
