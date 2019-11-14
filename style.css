@@ -2223,7 +2223,7 @@ input[type=search] {
 		}
 		.details {
     		span {
-    			top: 0;
+    			top: 100%;
     			opacity: 1;
     		}
         }
