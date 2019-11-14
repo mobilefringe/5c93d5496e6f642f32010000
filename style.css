@@ -346,6 +346,10 @@ strong {
                 }
                 p {
             	    margin: 0;
+            	    &:hover, &:active, &:focus, &:visited {
+                	    color: #000;
+                	    background:#d8be9f;
+                	}
             	}
             	&:hover, &:active, &:focus, &:visited {
             	    color: #000;
