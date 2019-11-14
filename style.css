@@ -341,18 +341,15 @@ strong {
                 font-size: 0.875rem;
                 line-height: normal;
                 color: #FFF;
+                &:hover, &:active, &:focus, &:visited {
+            	    color: #000;
+            	    background:#d8be9f;
+            	}
                 a:hover {
                     color: #000;
                 }
                 p {
             	    margin: 0;
-            	    &:hover, &:active, &:focus, &:visited {
-                	    color: #fff;
-                	}
-            	}
-            	&:hover, &:active, &:focus, &:visited {
-            	    color: #000;
-            	    background:#d8be9f;
             	}
             }
         }
