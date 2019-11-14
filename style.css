@@ -699,7 +699,8 @@ strong {
                 left: 10px;
                 font-size: 0.675rem;
                 line-height: normal;
-                color: #FFF;
+                // color: #FFF;
+                color: #000;
             }
             .insta_icon {
                 position: absolute;
