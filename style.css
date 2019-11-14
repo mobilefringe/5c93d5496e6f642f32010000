@@ -346,8 +346,7 @@ strong {
             	    background:#d8be9f;
             	}
                 a:hover {
-                    color: #fff !important;
-                    
+                    color: #000;
                 }
                 p {
             	    margin: 0;
