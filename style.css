@@ -350,9 +350,8 @@ strong {
                 }
                 p {
             	    margin: 0;
-            	    &:hover, &:active, &:focus, &:visited {
+            	    &:hover, &:focus {
                 	    color: #fff;
-                	    background:#d8be9f;
                 	}
             	}
             }
