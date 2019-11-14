@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                             <div v-if="currentStore.events">
-                                <h3 class="store_details_title">Current Events</h3>
+                                <h2 class="store_details_title">Current Events</h2>
                                 <div class="row margin_40">
                                     <div class="col-md-6" v-if="storeEvents" v-for="item in storeEvents">
                                         <div class="feature_item_container">
