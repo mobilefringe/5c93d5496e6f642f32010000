@@ -723,7 +723,8 @@ strong {
                 position: absolute;
                 top: 0;
                 // background: rgba(0,0,0,0.5);
-                background: $secondary;
+                // background: $secondary;
+                background: #d8be9f;
             }    
         }
     }
