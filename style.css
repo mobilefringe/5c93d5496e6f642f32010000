@@ -1826,6 +1826,8 @@ input[type=search] {
 }
 #store_dets_logo_container{
     position:relative;
+    display:flex;
+    justify-content: center;
     margin-bottom: 20px;
     .transparent_logo{
         border: 1px solid #D8D8D8;
