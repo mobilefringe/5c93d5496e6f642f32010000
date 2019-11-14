@@ -1871,6 +1871,10 @@ input[type=search] {
     margin-bottom: 20px;
     color: $primary;
     text-transform: uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.583rem;
+    line-height: normal;
 }
 
 .row .col-md-12 .thank_you {
