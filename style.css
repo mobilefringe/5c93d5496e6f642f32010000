@@ -2221,12 +2221,8 @@ input[type=search] {
 // 			top: 50%;
 // 			opacity: 1;
 		}
-		span {
-			
-			opacity: 0;
-			
-		}
 		.details {
+		    opacity: 0;
     		span {
     			top: 0;
     			opacity: 1;
