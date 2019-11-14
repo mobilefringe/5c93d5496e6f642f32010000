@@ -215,8 +215,8 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'vuex-router-syn
         methods: {
             loadData: async function() {
                 try{
-                    // await this.$store.dispatch('initializeApi', { site: "creekside", version: "v4" });
-                    await this.$store.dispatch('initializeApi', { site: "bramaleacitycentre", version: "v4" });
+                    await this.$store.dispatch('initializeApi', { site: "creekside", version: "v4" });
+                    // await this.$store.dispatch('initializeApi', { site: "bramaleacitycentre", version: "v4" });
                     
                     await Promise.all([this.$store.dispatch("getData", "property")]);
                     this.property.mm_host = this.property.mm_host.replace("http:", "");
