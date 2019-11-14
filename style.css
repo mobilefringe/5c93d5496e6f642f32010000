@@ -1699,6 +1699,13 @@ input[type=search] {
         // background-color: rgba(25, 85, 115, 0.8);
         background: $secondary;
         transition: all 0.3s ease;
+        h2 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            line-height: normal;
+            color: $primary;
+        }
     }
 }
 .store_logo_container:hover {
