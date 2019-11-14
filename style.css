@@ -455,7 +455,7 @@ strong {
         .footer_links a {
             color: #fff;
             &:hover {
-                color: $secondary;
+                text-decoration: underline;
             }
         }
     }
