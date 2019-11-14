@@ -2221,12 +2221,15 @@ input[type=search] {
 // 			top: 50%;
 // 			opacity: 1;
 		}
+		&:hover, &:focus {
+		    opacity: 1;
+		}
 		.details {
 		    opacity: 0;
-    		span {
-    			top: 0;
-    			opacity: 1;
-    		}
+    // 		span {
+    // 			top: 0;
+    // 			opacity: 1;
+    // 		}
         }
     }
     .insta-feed-container .insta-feed-image .insta-img {
