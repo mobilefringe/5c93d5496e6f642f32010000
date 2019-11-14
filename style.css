@@ -688,7 +688,8 @@ strong {
                 transform: translate(-50%, -50%);
                 font-size: 0.875rem;
                 line-height: normal;
-                color: #FFF;
+                // color: #FFF;
+                color: #000;
                 text-align: center;
             }
             .insta_user {
