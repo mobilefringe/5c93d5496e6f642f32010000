@@ -52,7 +52,7 @@
                             </div>
                             <div class=" margin_30 store_details_desc" v-html="currentStore.rich_description"></div>
                             <div v-if="deliveryAvailable" class="margin_30">
-                                <h2 class="store_details_title">Delivery Options:</h2>
+                                <h3 class="store_details_title">Delivery Options:</h3>
                                 <div class="store_details_delivery">
                                     <img v-if="hasDoordash" class="delivery_option" src="//codecloud.cdn.speedyrails.net/sites/5d8ac35a6e6f647bec090000/image/png/1568400931000/doordash.png" alt="Delivery available with DoorDash" />
                                     <img v-if="hasGrubhub" class="delivery_option" src="//codecloud.cdn.speedyrails.net/sites/5d8ac35a6e6f647bec090000/image/png/1568400381000/grubhub.png" alt="Delivery available with Grubhub" />
