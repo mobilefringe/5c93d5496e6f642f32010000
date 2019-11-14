@@ -161,8 +161,8 @@ strong {
     background: #ebebeb;
 }
 
-.spinner {
-    font-size: 2rem;
+.v-select .spinner {
+    font-size: 2rem !important;
 }
 /* *** LOADING *** */
 #overlay {
