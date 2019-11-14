@@ -348,8 +348,7 @@ strong {
             	    margin: 0;
             	}
             	&:hover, &:active, &:focus, &:visited {
-            	   // color: #000;
-            	   color: white;
+            	    color: #000;
             	    background:#d8be9f;
             	}
             }
