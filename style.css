@@ -350,7 +350,7 @@ strong {
                     &:hover, &:focus {
                         color: #000;
                         p {
-                            color: #fff;
+                            color: #000;
                         }
                     }
                     
@@ -358,7 +358,7 @@ strong {
                 p {
             	    margin: 0;
             	    &:hover, &:focus {
-                	    color: #fff !important;
+                	    color: #000 !important;
                 	}
             	}
             }
