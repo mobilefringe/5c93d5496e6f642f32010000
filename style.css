@@ -161,6 +161,9 @@ strong {
     background: #ebebeb;
 }
 
+.v-select .spinner {
+    font-size: 2rem;
+}
 /* *** LOADING *** */
 #overlay {
     position: fixed;
