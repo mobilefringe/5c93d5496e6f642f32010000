@@ -2213,23 +2213,6 @@ input[type=search] {
         margin-bottom: 30px;
         text-align: center;
     }
-//     .tile {
-// 	    img {
-// 	        filter: blur(1px);
-// 	    }
-// 		&:before {
-// // 			top: 50%;
-// // 			opacity: 1;
-// 		}
-// 		&:hover, &:focus
-// 		.details {
-// 		    opacity: 0;
-//     		span {
-//     			top: 0;
-//     			opacity: 1;
-//     		}
-//         }
-//     }
     .tile {
         &:focus,
         &:hover {
