@@ -145,7 +145,10 @@ strong {
     padding-right: 60px;
 }
 .accessibility {
-    display: none;
+    margin: 0;
+    height: 0;
+    position: absolute;
+    visibility: hidden;
 }
 .visible_phone {
     display: none;
