@@ -289,7 +289,7 @@ strong {
     }
     .site_logo {
         padding: 28px 0;
-        max-width: 250px;
+        max-width: 200px;
         transition: all 0.3s ease;
         img {
             max-width: 100%;
@@ -297,7 +297,7 @@ strong {
     }
     .mini_logo {
         padding: 18px 0;
-        max-width: 200px;
+        max-width: 150px;
     }
 }
 .sticky {
