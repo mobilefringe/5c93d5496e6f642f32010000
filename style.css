@@ -371,9 +371,13 @@ strong {
         }
     }
 }
+#primary_nav li a:focus + ul{
+    display:block;
+}
 #primary_nav ul .menu_item {
     &:hover > .subdropdown,
     &:focus > .subdropdown,
+    .show_sub_menu,
     .subdropdown:hover,
     .subdropdown.focus {
         display: block;
@@ -382,10 +386,10 @@ strong {
 }
 
 //for non-IE to allow tabable display on dropdown menu
-#primary_nav ul .menu_item:focus-within > .subdropdown {
+/*#primary_nav ul .menu_item:focus-within > .subdropdown {
     display: block;
 	z-index: 99;
-}
+}*/
 
 
 
