@@ -106,6 +106,17 @@
                 }
             },
             created() {
+                this.loadData().then(response => {
+                    var temp_repo = this.findRepoByName('Events Banner').images;
+                    if(temp_repo != null) {
+                        this.pageBanner = temp_repo[0];
+                    } else {
+                        this.pageBanner = {
+                            "image_url": "//codecloud.cdn.speedyrails.net/sites/5dcd73f56e6f642ee8000000/image/png/1553624485505/creekside_banner.png"
+                        }
+                    }
+                });
+                
                 this.$store.dispatch("getData", "contests").then(response => {
                     this.currentContest = this.findContestByShowOnSlug('creekside-contest');
                     console.log("currentContest", this.currentContest)
