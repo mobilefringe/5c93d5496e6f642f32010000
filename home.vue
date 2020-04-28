@@ -297,7 +297,7 @@
                             this.$store.dispatch("getData", "banners"), 
                             this.$store.dispatch("getData","promotions"), 
                             this.$store.dispatch("getData", "events"), 
-                            this.$store.dispatch('LOAD_PAGE_DATA', {url: "https://creekside.mallmaverickstaging.com/api/v4/creekside/social.json"})]);
+                            this.$store.dispatch('LOAD_PAGE_DATA', {url: "https://creekside.mallmaverick.com/api/v4/creekside/social.json"})]);
                         return results;
                     } catch(e) {
                         console.log("Error loading data: " + e.message);    
