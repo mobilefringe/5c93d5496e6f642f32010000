@@ -36,15 +36,17 @@
                                 <ul v-if="storeHours.length > 0" class="store_details_hours_list">
                                     <li v-for="hour in storeHours" :class="{ today: hour.todays_hours }">
                                         <div v-if="hour.open_full_day">
-                                            <span class="hours_list_day">{{hour.day_of_week | moment("dddd", timezone)}} </span><span class="hours_list_time">OPEN 24HRS</span>
+                                            <span class="hours_list_day">{{hour.day_of_week | moment("dddd", timezone)}} </span>
+                                            <span class="hours_list_time">OPEN 24HRS</span>
                                         </div>
                                         <div v-else-if="hour.is_closed">
-                                            <span class="hours_list_day">{{hour.day_of_week | moment("dddd", timezone)}} </span>CLOSED
+                                            <span class="hours_list_day">{{hour.day_of_week | moment("dddd", timezone)}} </span>
+                                            <span class="hours_list_time">CLOSED</span>
                                         </div>
                                         <div v-else>
-                                            <span class="hours_list_day">{{hour.day_of_week | moment("dddd", timezone)}} </span><span class="hours_list_time">{{hour.open_time | moment("h:mma", timezone)}} - {{hour.close_time | moment("h:mma", timezone)}}</span>
+                                            <span class="hours_list_day">{{hour.day_of_week | moment("dddd", timezone)}} </span>
+                                            <span class="hours_list_time">{{hour.open_time | moment("h:mma", timezone)}} - {{hour.close_time | moment("h:mma", timezone)}}</span>
                                         </div>
-                                        
                                     </li>
                                     <li class="hours_vary">*Hours may vary</li>
                                 </ul>
